@@ -1,0 +1,6 @@
+<h5>{{ name }}</h5>
+<p>description: {{ description }}</p>
+<p>price: {{ price }}</p>
+<p>category: {{ category }}</p>
+<p>isAvailable: </p><input type="checkbox" [checked]="isAvailable" />
+<input type="button" (click)="onAddToCart(name)" value="Buy">
