@@ -1,0 +1,4 @@
+<p>Product List:</p>
+<li *ngFor="let product of productsService.getProducts()">
+    <app-product (addToCartEvent)="onAddToCart($event)" [product] = 'product'></app-product>
+</li>

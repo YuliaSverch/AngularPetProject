@@ -1,0 +1,6 @@
+<h5>{{ product.Name }}</h5>
+<p>description: {{ product.Description }}</p>
+<p>price: {{ product.Price }}</p>
+<p>category: {{ product.Category }}</p>
+<p>isAvailable: </p><input type="checkbox" [checked]="product.IsAvailable" />
+<input type="button" (click)="onAddToCart(product)" value="Buy" [disabled]="!product.IsAvailable">

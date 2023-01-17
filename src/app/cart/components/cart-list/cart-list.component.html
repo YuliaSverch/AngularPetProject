@@ -1,0 +1,15 @@
+<input type="button" value="Show cart" (click)="toggleCart()"/>
+<p>Total cost: {{cartService.getTotalCost}}</p>
+<p>Total quantity: {{cartService.getTotalQuantity}}</p>
+<div *ngIf="showCart">
+    <div *ngIf="isCartNotEmpty; else cartIsEmptyMessage">
+        <li *ngFor="let product of cartProducts; trackBy: trackByCart">
+           <app-cart-item (increaseQuantityEvent)="onQuantityIncrease($event)"
+                          (decreaseQuantityEvent)="onQuantityDecrease($event)" 
+                          (deleteItemEvent)="onDeleteItem($event)"
+                          [product] = 'product'></app-cart-item>
+        </li>
+    </div>
+    <ng-template #cartIsEmptyMessage>The cart is empty.</ng-template>
+</div>
+
