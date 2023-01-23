@@ -2,6 +2,7 @@ enum Category {
     A,
 }
 
+// Можно расширить модель Product
 export interface CartProducts {
     Id: number
     Name: string,

@@ -10,7 +10,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
     ProductsListComponent
   ],
   exports: [
-    ProductComponent,
+    // ProductComponent,
     ProductsListComponent
   ],
   imports: [
