@@ -8,8 +8,8 @@ export class CartService {
   private cartProductsList : Array<CartProducts> = [
     {
       Id: 0,
-      Name: 'Product0', 
-      Description: 'Description0', 
+      Name: 'Product0',
+      Description: 'Description0',
       Price: 100,
       Category: 0,
       IsAvailable: true,
@@ -88,7 +88,7 @@ export class CartService {
   }
 
   isCartEmpty(): boolean {
-    return this.cartProductsList.length == 0;
+    return this.cartProductsList.length === 0;
   }
 
   removeAllProducts() {

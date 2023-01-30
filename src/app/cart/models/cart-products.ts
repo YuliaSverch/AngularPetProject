@@ -2,6 +2,7 @@ enum Category {
     A,
 }
 
+// необычно выглядят названия свойств с верхнего регистра
 export interface CartProducts {
     Id: number
     Name: string,
