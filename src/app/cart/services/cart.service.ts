@@ -5,7 +5,7 @@ import { CartProducts } from '../models/cart-products';
   providedIn: 'root'
 })
 export class CartService {
-  cartProductsList : Array<CartProducts> = [
+  private cartProductsList : Array<CartProducts> = [
     {
       Id: 0,
       Name: 'Product0', 
@@ -23,7 +23,7 @@ export class CartService {
     return this.cartProductsList;
   }
 
-  get getTotalCost() {
+  get totalCost() {
     var totalCost = 0;
     this.cartProductsList.forEach(element => {
       element.Quantity ? totalCost += element.Price * element.Quantity : totalCost += element.Price;
@@ -32,7 +32,7 @@ export class CartService {
     return totalCost;
   }
 
-  get getTotalQuantity() {
+  get totalQuantity() {
     var totalQuantity = 0;
     this.cartProductsList.forEach(element => {
       element.Quantity ? totalQuantity += element.Quantity : totalQuantity = 1;
@@ -48,7 +48,7 @@ export class CartService {
     }
     else {
       product.Quantity = 1;
-      this.cartProductsList.push(product);
+      this.cartProductsList = [...this.cartProductsList, product];
     }
   }
 
@@ -78,13 +78,20 @@ export class CartService {
   }
 
   deleteItem(productName: string) : void {
-    var productToDelete = this.cartProductsList.find(p => p.Name == productName);
-    if(productToDelete != undefined)
+    var productToDeleteIndex = this.cartProductsList.findIndex(p => p.Name == productName);
+    if(productToDeleteIndex != undefined)
     {
-      const index = this.cartProductsList.indexOf(productToDelete, 0);
-      if (index > -1) {
-        this.cartProductsList.splice(index, 1);
+      if (productToDeleteIndex > -1) {
+        this.cartProductsList = [...this.cartProductsList.slice(0, productToDeleteIndex), ...this.cartProductsList.slice(productToDeleteIndex + 1)];
       }
     }
+  }
+
+  isCartEmpty(): boolean {
+    return this.cartProductsList.length == 0;
+  }
+
+  removeAllProducts() {
+    this.cartProductsList = [];
   }
 }

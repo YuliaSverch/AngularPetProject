@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional, Inject } from '@angular/core';
+import { AppConfigModel } from 'src/app/core/models/app-config.model';
+import { ConfigOptionsService } from 'src/app/core/services/config-options.service';
+import { constant, ConstantToken } from 'src/app/core/services/constant.token';
+import { GeneratedString, GeneratorFactory } from 'src/app/core/services/generator.factory';
+import { GeneratorService } from 'src/app/core/services/generator.service';
+import { LocalStorage, LocalStorageToken } from 'src/app/core/services/local-storage.service';
 
 enum Category {
   A,
@@ -7,7 +13,12 @@ enum Category {
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
-  styleUrls: ['./first.component.css']
+  styleUrls: ['./first.component.css'],
+  providers: [
+    { provide: ConstantToken, useValue: constant},
+    { provide: GeneratedString, useValue: GeneratorFactory(2), deps: [GeneratorService]},
+    { provide: LocalStorageToken, useValue: LocalStorage}
+  ]
 })
 
 export class FirstComponent implements OnInit {
@@ -17,7 +28,13 @@ export class FirstComponent implements OnInit {
   category!: Category;
   isAvailable: Boolean = false;
 
-  constructor() {}
+  constructor(
+    @Optional() public configOptions: ConfigOptionsService,
+    @Optional() @Inject(ConstantToken) public constant: AppConfigModel,
+    @Optional() @Inject(GeneratedString) public genString: string,
+    @Optional() @Inject(LocalStorageToken) public locStorage: LocalStorage,
+    @Optional() public generatorService: GeneratorService
+  ) {}
 
   ngOnInit() {
     this.name = "Name";

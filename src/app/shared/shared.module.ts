@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { FirstComponent } from './components/first/first.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FontSizeDirective } from './directives/font-size.directive';
 
 @NgModule({
   declarations: [
     FirstComponent,
-    HighlightDirective
+    HighlightDirective,
+    FontSizeDirective
   ],
   exports: [
     FirstComponent,

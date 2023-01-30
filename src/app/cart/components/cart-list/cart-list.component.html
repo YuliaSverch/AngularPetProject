@@ -1,6 +1,6 @@
 <input type="button" value="Show cart" (click)="toggleCart()"/>
-<p>Total cost: {{cartService.getTotalCost}}</p>
-<p>Total quantity: {{cartService.getTotalQuantity}}</p>
+<p>Total cost: {{cartService.totalCost}}</p>
+<p>Total quantity: {{cartService.totalQuantity}}</p>
 <div *ngIf="showCart">
     <div *ngIf="isCartNotEmpty; else cartIsEmptyMessage">
         <li *ngFor="let product of cartProducts; trackBy: trackByCart">

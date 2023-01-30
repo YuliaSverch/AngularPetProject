@@ -1,4 +1,4 @@
-Added
+Added (HW #1)
 - First Component
 - Product Component,
 - ProductList Component
@@ -16,3 +16,14 @@ Added/Modified (HW #2)
 - created CartItem Component
 - added title for app
 - created HighlightDirective
+
+Added/Modified (HW #3)
+- modified CartService
+- created ConfigOptionsService
+- created Constant token
+- created GeneratorService
+- created GeneratorFactory function and generatedString token
+- created Gen-id token
+- created LocalStorage and LocalStorageToken
+- modified First component (Registered new services).
+- created FontSize directive
