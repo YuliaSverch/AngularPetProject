@@ -1,6 +1,7 @@
 <div [appHighlight]="color">
     <p id="product.Id"></p>
-    <p>Name: {{product.Name}}</p>
+    <p>Name: {{product.Name | uppercase }}</p>
+    <p>Price: {{product.Price | currency }}</p>
     <input type="button" (click)="onIncreaseQuantity(product)" value="Increase Quantity">
     <input type="button" (click)="onDecreaseQuantity(product)" value="Decrease Quantity">
     <input type="button" (click)="onDeleteItem(product.Name)" value="Delete">
