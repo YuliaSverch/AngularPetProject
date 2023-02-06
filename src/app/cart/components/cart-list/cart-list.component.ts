@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartProducts } from '../../models/cart-products';
+import { SortOptions } from '../../models/sort-options';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -11,6 +12,10 @@ export class CartListComponent implements OnInit {
   showCart: boolean = false;
   isCartNotEmpty!: boolean;
   cartProducts!: Array<CartProducts>;
+
+  sortOptions = Object.values(SortOptions).filter((v) => isNaN(Number(v)));;
+  sortOptionsKey!: keyof SortOptions;
+  isAsc = false;
 
   constructor(public cartService: CartService) {}
 

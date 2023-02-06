@@ -1,9 +1,16 @@
 <input type="button" value="Show cart" (click)="toggleCart()"/>
 <p>Total cost: {{cartService.totalCost}}</p>
 <p>Total quantity: {{cartService.totalQuantity}}</p>
+<p>Sort products:</p>
+
+<input type="checkbox" [(ngModel)]="isAsc"/>
+<select [(ngModel)]="sortOptionsKey">
+    <option *ngFor="let option of sortOptions" [ngValue]="option">{{ option }}</option>
+</select>
+
 <div *ngIf="showCart">
     <div *ngIf="isCartNotEmpty; else cartIsEmptyMessage">
-        <li *ngFor="let product of cartProducts; trackBy: trackByCart">
+        <li *ngFor="let product of cartProducts | orderBy: sortOptionsKey : isAsc; trackBy: trackByCart">
            <app-cart-item (increaseQuantityEvent)="onQuantityIncrease($event)"
                           (decreaseQuantityEvent)="onQuantityDecrease($event)" 
                           (deleteItemEvent)="onDeleteItem($event)"

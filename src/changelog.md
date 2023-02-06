@@ -27,3 +27,7 @@ Added/Modified (HW #3)
 - created LocalStorage and LocalStorageToken
 - modified First component (Registered new services).
 - created FontSize directive
+
+Added/Modified (HW #4)
+- added build in pipes to: CartItem Component, Product Component, ProductList Component
+- created OrderPipe and used in CartList Component
