@@ -5,17 +5,18 @@ import { CartProducts } from '../models/cart-products';
   providedIn: 'root'
 })
 export class CartService {
-  private cartProductsList : Array<CartProducts> = [
-    {
-      Id: 0,
-      Name: 'Product0', 
-      Description: 'Description0', 
-      Price: 100,
-      Category: 0,
-      IsAvailable: true,
-      Quantity: 1
-    }
-  ];
+  private cartProductsList: Array<CartProducts> = [];
+  //  = [
+  //   {
+  //     Id: 0,
+  //     Name: 'Product0',
+  //     Description: 'Description0',
+  //     Price: 100,
+  //     Category: 0,
+  //     IsAvailable: true,
+  //     Quantity: 1
+  //   }
+  // ];
 
   constructor() { }
 
