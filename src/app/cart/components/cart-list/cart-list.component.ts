@@ -23,6 +23,12 @@ export class CartListComponent implements OnInit {
     this.cartProducts = this.cartService.getCartProducts();
     this.isCartNotEmpty = this.cartProducts.length != 0;
   }
+  // надо выполнять периодически
+  // можно так или сделать из этих полей гетеры
+  ngDoCheck(): void {
+    this.cartProducts = this.cartService.getCartProducts();
+    this.isCartNotEmpty = this.cartProducts.length != 0;
+  }
 
   toggleCart(): void {
     this.showCart = !this.showCart;

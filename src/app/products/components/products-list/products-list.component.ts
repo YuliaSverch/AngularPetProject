@@ -10,7 +10,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductsListComponent {
   constructor(public productsService: ProductsService,
-              public cartService: CartService) {}
+              private cartService: CartService) {} // used only in class
 
   onAddToCart (product: ProductModel): void {
     this.cartService.addProductToCart(product);
